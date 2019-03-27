@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     get "/users/:id/edit" do
       erb :"/users/edit.html"
     end
-
+end 
 
 
 
