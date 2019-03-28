@@ -11,6 +11,14 @@ class WorkoutsController < ApplicationController
 #
   # POST: /workouts
   post "/workouts" do
+    workout = Workout.new(params)
+    if workout.save
+      session[:workout_id] = workout.id
+      redirect "exercises/new"
+      # redirect "/users/#{user.id}"
+    else
+      redirect 'workouts/new'
+    end
     # redirect "/workouts"
   end
 #
