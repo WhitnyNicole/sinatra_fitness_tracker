@@ -5,15 +5,15 @@ end
 #     erb :"/workouts/index.html"
 #   end
 #
-#   # GET: /workouts/new
-#   get "/workouts/new" do
-#     erb :"/workouts/new.html"
-#   end
+  # GET: /workouts/new
+  get "/workouts/new" do
+    erb :"/workouts/new.html"
+  end
 #
-#   # POST: /workouts
-#   post "/workouts" do
-#     redirect "/workouts"
-#   end
+  # POST: /workouts
+  post "/workouts/new" do
+    # redirect "/workouts"
+  end
 #
 #   # GET: /workouts/5
 #   get "/workouts/:id" do

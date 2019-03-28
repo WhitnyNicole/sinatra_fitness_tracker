@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     user = User.new(params)
     if user.save
       session[:user_id] = user.id
-      redirect "/workouts"
+      redirect "/workouts/new"
       # redirect "/users/#{user.id}"
     else
       redirect '/users/new'
