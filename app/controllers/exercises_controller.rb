@@ -1,20 +1,20 @@
 class ExercisesController < ApplicationController
 end
-  # GET: /exercises
-  get "/exercises" do
-    erb :"/exercises/index.html"
-  end
-
-  # GET: /exercises/new
-  get "/exercises/new" do
-    erb :"/exercises/new.html"
-  end
-
-  # POST: /exercises
-  post "/exercises" do
-    redirect "/exercises"
-  end
+#   # GET: /exercises
+#   get "/exercises" do
+#     erb :"/exercises/index.html"
+#   end
 #
+#   # GET: /exercises/new
+#   get "/exercises/new" do
+#     erb :"/exercises/new.html"
+#   end
+#
+#   # POST: /exercises
+#   post "/exercises" do
+#     redirect "/exercises"
+#   end
+# #
 #   # GET: /exercises/5
 #   get "/exercises/:id" do
 #     erb :"/exercises/show.html"

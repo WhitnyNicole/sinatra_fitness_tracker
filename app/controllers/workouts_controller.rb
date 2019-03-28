@@ -1,5 +1,4 @@
 class WorkoutsController < ApplicationController
-end
 #   # GET: /workouts
 #   get "/workouts" do
 #     erb :"/workouts/index.html"
@@ -7,11 +6,11 @@ end
 #
   # GET: /workouts/new
   get "/workouts/new" do
-    erb :"/workouts/new.html"
+    erb :"workouts/new"
   end
 #
   # POST: /workouts
-  post "/workouts/new" do
+  post "/workouts" do
     # redirect "/workouts"
   end
 #
@@ -34,4 +33,4 @@ end
 #   delete "/workouts/:id/delete" do
 #     redirect "/workouts"
 #   end
-# end
+end

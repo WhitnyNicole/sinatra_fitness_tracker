@@ -1,45 +1,45 @@
 class UsersController < ApplicationController
 
   get '/users/new' do
-    erb :'/users/new.html'
+    erb :'users/new'
   end
 
-  post '/users/new' do
+  post '/users' do
     user = User.new(params)
     if user.save
       session[:user_id] = user.id
-      redirect "/workouts/new"
+      redirect "workouts/new"
       # redirect "/users/#{user.id}"
     else
-      redirect '/users/new'
+      redirect 'users/new'
     end
   end
 
   get '/users/login' do
      "you are logged in"
      if is_logged_in?
-       redirect '/workouts/show'
+       redirect 'workouts/show'
      else
        "Please log into your account"
-       erb :'/users/login.html'
+       erb :'users/login'
      end
    end
 
 
-   post '/users/login' do
+   post '/users' do
      user = User.find_by(:username => params[:username])
      if user && user.authenticate(params[:password])
          session[:user_id] = user.id
      end
-         redirect to '/workouts/show'
+         redirect to 'workouts/show'
    end
 
-    # POST: /users
-    post "/users" do
-      user = User.new(params)
-      user.save
-      redirect "/users/#{user.id}"
-    end
+    # # POST: /users
+    # post "/users" do
+    #   user = User.new(params)
+    #   user.save
+    #   redirect "/users/#{user.id}"
+    # end
 
     # GET: /users/5
     get "/users/:id" do
