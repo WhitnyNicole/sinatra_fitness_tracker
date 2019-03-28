@@ -1,17 +1,17 @@
 class UsersController < ApplicationController
 
-  get '/users/signup' do
-    erb :'/users/signup.html'
+  get '/users/new' do
+    erb :'/users/new.html'
   end
 
-  post '/users/signup' do
+  post '/users/new' do
     user = User.new(params)
     if user.save
       session[:user_id] = user.id
       redirect "/workouts"
       # redirect "/users/#{user.id}"
     else
-      redirect '/users/signup'
+      redirect '/users/new'
     end
   end
 
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     get "/users/:id/edit" do
       erb :"/users/edit.html"
     end
-end 
+end
 
 
 
