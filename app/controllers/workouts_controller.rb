@@ -22,6 +22,17 @@ class WorkoutsController < ApplicationController
     # redirect "/workouts"
   end
 #
+# GET: /workouts/show
+get "/workouts/show" do
+  erb :"workouts/show"
+end
+#
+# POST: /workouts
+post "/workouts" do
+  erb :"workouts/show"
+  # redirect "/workouts"
+end
+
 #   # GET: /workouts/5
 #   get "/workouts/:id" do
 #     erb :"/workouts/show.html"
