@@ -1,8 +1,13 @@
-<h1>Enter your new workout below:</h1>
+<h1>Record Today's Workout:</h1>
 <br><br>
 <form action="/workouts/new" method="POST">
- <p>Name: <input type="text" name="username"></p>
- <p>Email: <input type="text" name="email"></p>
- <p>Password: <input type="text" name="password"></p>
- <input class="btn btn-primary" type="submit">
+  <h2> Choose a category below: </h2>
+  <input type="radio" name="upper body" value="upper body"> Upper Body<br>
+  <input type="radio" name="lower body" value="lower body"> Lower Body<br>
+  <input type="radio" name="cardio" value="cardio"> Cardio
+</form>
+
+<form>
+  <br><br>
+  <input class="btn btn-primary" type="submit">
 </form>
