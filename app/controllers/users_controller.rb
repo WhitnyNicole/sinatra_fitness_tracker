@@ -1,7 +1,20 @@
 class UsersController < ApplicationController
 
+  #go to individual user's homepage
+  #add the protection
+    get '/users/:id' do
+      @user = User.find_by(id: params[:id])
+      erb :'users/show'
+    end
+
+    #log user out
+      get '/logout' do
+        session.clear
+        redirect '/'
+      end
+
 #create user and sign up
-  get '/users/signup' do
+  get '/signup' do
     erb :'users/signup'
   end
 
@@ -12,7 +25,7 @@ class UsersController < ApplicationController
       redirect "workouts/show"
       # redirect "/users/#{user.id}"
     else
-      redirect 'users/signup'
+      redirect 'signup'
     end
   end
 
@@ -28,34 +41,19 @@ class UsersController < ApplicationController
 # end
 
 #allow returning user to log back in
-  get '/users/login' do
+  get '/login' do
     erb :'users/login'
   end
 
-  post '/users' do
+  post '/login' do
     @user = User.find_by(email: params[:email])
-    if @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       puts session
       redirect "users/#{@user.id}"
     else
       "Oops, that didn't work. Please log in."
-      redirect "users/login"
+      redirect "login"
     end
   end
-
 end
-
-#go to individual user's homepage
-  get '/users/:id' do
-    @user = User.find_by(id: params[:id])
-
-    erb :'users/show'
-  end
-
-
-#log user out
-  get 'users/logout' do
-    session.clear
-    redirect '/'
-  end
