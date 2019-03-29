@@ -1,7 +1,7 @@
 class WorkoutsController < ApplicationController
 #   # GET: /workouts
 #   get "/workouts" do
-#     erb :"/workouts/index.html"
+#     erb :"/workouts/index"
 #   end
 #
   # GET: /workouts/new
