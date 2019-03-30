@@ -10,29 +10,31 @@ class WorkoutsController < ApplicationController
   end
 #
   # POST: /workouts
+  post "/workouts" do
+    if !logged_in?
+      redirect '/'
+    end
+    if params[:category] != ""
+      @workout = Workout.create(category: params[:category], user_id: current_user.id)
+      redirect "/workouts/#{@workout.id}"
+      # redirect "/users/#{user.id}"
+    else
+      redirect 'workouts/new'
+    end
+  end
+
   # post "/workouts" do
-  #   if !logged_in?
-  #     redirect '/'
-  #   end
-  #   if params[:category] != ""
-  #     @workout = Workout.create(category: params[:category], user_id: current_user.id)
+  #   workout = Workout.new(params)
+  #   if workout.save
+  #     session[:user_id] = user.id
+  #     # redirect "workouts/show"
+  #     flash[:message] = "You have selected a category. Now add the details!"
   #     redirect "/workouts/#{@workout.id}"
-  #     # redirect "/users/#{user.id}"
   #   else
+  #     flash[:message] = "Sorry, please select a category."
   #     redirect 'workouts/new'
   #   end
   # end
-
-
-# Try This
-post '/workouts' do
-  @workout = Workout.create(params["category"])
-  if !params["workouts"]["category"].empty?
-    @workout.user = User.create(name: params["user"]["name"])
-  end
-  @workout.save
-  redirect "/users/#{user.id}"
-end
 
 #
 # GET: /workouts/show
@@ -40,12 +42,16 @@ end
     @workout = Workout.find(params[:id])
     erb :"workouts/show"
   end
+
+  get "/workouts/:id/edit" do
+    erb :"workouts/edit"
+  end
 #
 # POST: /workouts
-  post "/workouts" do
-    erb :"workouts/show"
-  # redirect "/workouts"
-  end
+  # post "/workouts" do
+  #   erb :"workouts/show"
+  # # redirect "/workouts"
+  # end
 
 #   # GET: /workouts/5
 #   get "/workouts/:id" do
