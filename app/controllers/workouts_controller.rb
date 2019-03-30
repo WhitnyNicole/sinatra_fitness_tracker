@@ -11,18 +11,19 @@ class WorkoutsController < ApplicationController
 #
   # POST: /workouts
   post "/workouts" do
-    raise params.inspect
-    # if !logged_in?
-    #   redirect 'login'
-    # end
-    # if params[:category] != ""
-    #   @workout = Workout.create(category: params[:category], user_id: current_user.id)
-    #   redirect "/workouts/#{@workout.id}"
-    #   # redirect "/users/#{user.id}"
-    # else
-    #   redirect 'workouts/new'
-    # end
-    # redirect "/workouts"
+    if !logged_in?
+      redirect '/'
+    end
+    if params[:category] != ""
+      @workout = Workout.create(category: params[:category], user_id: current_user.id)
+      redirect "/workouts/#{@workout.id}"
+      # redirect "/users/#{user.id}"
+    else
+      raise params.inspect
+
+      redirect 'workouts/new'
+    end
+    redirect "/workouts"
   end
 #
 # GET: /workouts/show
@@ -32,10 +33,10 @@ class WorkoutsController < ApplicationController
   end
 #
 # POST: /workouts
-  # post "/workouts" do
-  #   erb :"workouts/show"
-  # # redirect "/workouts"
-  # end
+  post "/workouts" do
+    erb :"workouts/show"
+  # redirect "/workouts"
+  end
 
 #   # GET: /workouts/5
 #   get "/workouts/:id" do
