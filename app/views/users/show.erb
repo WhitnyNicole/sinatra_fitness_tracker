@@ -1,4 +1,7 @@
-<h2><%= @user.name %>'s Show Page</h2>
+<h2> Your Homepage</h2>
 
-    <h3> Email: </h3>
-    <h4><%= @user.email %></h4>
+    <h3> Name: <%= @user.name %></h3>
+    <h3> Email: <%= @user.email %></h3>
+
+    <br><br>
+    <p> See Your Workouts: <a href="/workouts/show"> Workouts </a>

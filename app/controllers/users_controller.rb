@@ -22,8 +22,8 @@ class UsersController < ApplicationController
     user = User.new(params)
     if user.save
       session[:user_id] = user.id
-      redirect "workouts/show"
-      # redirect "/users/#{user.id}"
+      # redirect "workouts/show"
+      redirect "/users/#{user.id}"
     else
       redirect 'signup'
     end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
       puts session
       redirect "users/#{@user.id}"
     else
-      "Oops, that didn't work. Please log in."
+      flash[:errors] = "Your credentials were invalid.  Please sign up or try again."
       redirect "login"
     end
   end
