@@ -22,8 +22,8 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-    @current_user ||= User.find_by(id: session[:user.id])
-   end
+      @current_user ||= User.find_by(id: session[:user.id])
+    end
 
     def redirect_if_not_logged_in
       if !logged_in?
@@ -34,7 +34,7 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_logged_in
       if logged_in?
-       redirect "/users/#{current_user.id}"
+        redirect "/users/#{current_user.id}"
      end
    end
  end
