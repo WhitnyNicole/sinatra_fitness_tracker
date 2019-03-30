@@ -16,7 +16,7 @@ class WorkoutsController < ApplicationController
     end
     if params[:category] != ""
       @workout = Workout.create(category: params[:category], user_id: current_user.id)
-      redirect "/workouts/#{@workout.id}"
+      redirect "/exercises/new"
       # redirect "/users/#{user.id}"
     else
       redirect 'workouts/new'
