@@ -10,21 +10,30 @@ class WorkoutsController < ApplicationController
   end
 #
   # POST: /workouts
-  post "/workouts" do
-    if !logged_in?
-      redirect '/'
-    end
-    if params[:category] != ""
-      @workout = Workout.create(category: params[:category], user_id: current_user.id)
-      redirect "/workouts/#{@workout.id}"
-      # redirect "/users/#{user.id}"
-    else
-      raise params.inspect
+  # post "/workouts" do
+  #   if !logged_in?
+  #     redirect '/'
+  #   end
+  #   if params[:category] != ""
+  #     @workout = Workout.create(category: params[:category], user_id: current_user.id)
+  #     redirect "/workouts/#{@workout.id}"
+  #     # redirect "/users/#{user.id}"
+  #   else
+  #     redirect 'workouts/new'
+  #   end
+  # end
 
-      redirect 'workouts/new'
-    end
-    redirect "/workouts"
+
+# Try This
+post '/workouts' do
+  @workout = Workout.create(params["category"])
+  if !params["workouts"]["category"].empty?
+    @workout.user = User.create(name: params["user"]["name"])
   end
+  @workout.save
+  redirect "/users/#{user.id}"
+end
+
 #
 # GET: /workouts/show
   get "/workouts/:id" do
