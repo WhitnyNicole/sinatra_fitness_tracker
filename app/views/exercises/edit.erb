@@ -1,1 +1,12 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1> Edit an Exercise:</h1>
+<br><br>
+<form action="/exercises/<%= @exercise.id %>" method="POST">
+  <h4>Edit Completed Workout Below:</h4>
+  <br><br>
+  <input type="hidden" name="_method" value="patch">
+  <p>How many reps?: <input type="text" name="reps" placeholder="10"></p>
+  <p>What weight did you use?: <input type="integer" name="weight" placeholder="35"></p>
+  <p>Completed Date?: <input type="datetime" name="day" placeholder="March 3 2019"></p>
+  <br><br>
+ <input type="submit" value= "Edit Workout">
+</form>
