@@ -1,1 +1,14 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<h1>Here are your exercises</h1>
+
+<p>Completed on: <%= @exercise.day %></p>
+<p>Completed reps:<%= @exercise.reps %></p>
+<p>Weight used:<%= @exercise.weight %></p>
+
+
+
+  <a href="/exercises/<%= @exercise.id %>/edit">Edit Exercise</a>
+<br><br>
+<form class="" action="/exercises/<%= @exercise.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete This Exercise">
+</form>

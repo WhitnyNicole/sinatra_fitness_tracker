@@ -25,12 +25,12 @@ class ExercisesController < ApplicationController
   end
 
   get "/exercises/:id" do
-    set_exercises
+    set_exercise
     erb :"exercises/show"
   end
 
   get "/exercises/:id/edit" do
-    set_exercises
+    set_exercise
     if logged_in?
       if @exercise.user == current_user
         erb :"exercises/edit"
