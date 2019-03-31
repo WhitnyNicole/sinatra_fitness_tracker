@@ -76,6 +76,7 @@ class WorkoutsController < ApplicationController
     else
       flash[:message] = "Sorry, you cannot delete that entry."
       redirect "/workouts"
+    end
   end
 
   private
