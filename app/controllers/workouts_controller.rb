@@ -57,6 +57,7 @@ class WorkoutsController < ApplicationController
     if logged_in?
       if @workout.user == current_user && params[:category] != ""
         @workout.update(category: params[:category])
+        flash[:message] = "Sorry, that update was not saved."
         redirect "/workouts/#{@workout.id}"
       else
         redirect "users/#{current_user.id}"
