@@ -1,6 +1,7 @@
 class ExercisesController < ApplicationController
 #   # GET: /exercises
   get "/exercises" do
+    @exercises = Exercise.all
     erb :"exercises/index"
   end
 #
