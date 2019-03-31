@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       flash[:message] = "You have successfully created an account. Welcome!"
       redirect "/users/#{user.id}"
     else
-      flash[:message] = "Sorry, please create an account."
+      flash[:errors] = "Sorry, please create an account."
       redirect 'signup'
     end
   end
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
       flash[:message] = "Welcome, #{@user.name}!"
       redirect "users/#{@user.id}"
     else
-      flash[:message] = "Your credentials were invalid.  Please sign up or try again."
+      flash[:errors] = "Your credentials were invalid.  Please sign up or try again."
       redirect "login"
     end
   end

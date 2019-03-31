@@ -15,8 +15,10 @@ class WorkoutsController < ApplicationController
     end
     if params[:category] != ""
       @workout = Workout.create(category: params[:category], user_id: current_user.id)
+      flash[:message] = "Congrats, you entered a new workout!"
       redirect "/exercises/new"
     else
+      flash[:errors] = "Oops, that workout could not be created."
       redirect 'workouts/new'
     end
   end
@@ -57,13 +59,12 @@ class WorkoutsController < ApplicationController
     if logged_in?
       if @workout.user == current_user && params[:category] != ""
         @workout.update(category: params[:category])
-        flash[:message] = "Sorry, that update was not saved."
         redirect "/workouts/#{@workout.id}"
       else
         redirect "users/#{current_user.id}"
       end
     else
-      flash[:message] = "Sorry, you cannot edit that entry."
+      flash[:errors] = "Sorry, you cannot edit that entry."
       redirect "/"
     end
   end
@@ -75,7 +76,7 @@ class WorkoutsController < ApplicationController
       flash[:message] = "That entry was successfully deleted."
       redirect "/workouts"
     else
-      flash[:message] = "Sorry, you cannot delete that entry."
+      flash[:errors] = "Sorry, you cannot delete that entry."
       redirect "/workouts"
     end
   end
