@@ -55,7 +55,7 @@ class WorkoutsController < ApplicationController
   patch "/workouts/:id" do
     set_workout
     if logged_in?
-      if @workout.user == current_user
+      if @workout.user == current_user && params[:category] != ""
         @workout.update(category: params[:category])
         redirect "/workouts/#{@workout.id}"
       else
