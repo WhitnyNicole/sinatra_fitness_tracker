@@ -11,7 +11,17 @@ class ExercisesController < ApplicationController
 
   # POST: /exercises
   post "/exercises" do
-    redirect "/exercises"
+    if !logged_in?
+      redirect '/'
+    end
+    if params[:reps] && params[:weight] && params[:day] != ""
+      @workout = Workout.create(reps: params[:reps], user_id: current_user.id, weight: params[:weight], day: params[:day])
+      flash[:message] = "Congrats, you've entered a new exercise!"
+      redirect "/exercises"
+    else
+      flash[:errors] = "Oops, that exercise could not be created."
+      redirect 'exercises/new'
+    end
   end
 # #
 #   # GET: /exercises/5
