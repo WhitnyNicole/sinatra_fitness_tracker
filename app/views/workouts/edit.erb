@@ -1,1 +1,13 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1> Edit a Workout:</h1>
+<br><br>
+<form action="/workouts/<% @workout.id %>" method="POST">
+  <h2> Choose a category below: </h2>
+  <input type="hidden" name="_method" value="patch">
+  <input type="radio" name="category" value="upper body"> Upper Body<br>
+  <input type="radio" name="category" value="lower body"> Lower Body<br>
+  <input type="radio" name="category" value="cardio"> Cardio
+  <input type="submit" name="" value="Edit Workout">
+</form>
+
+<!-- #can use for exercises -->
+<!-- <textarea name="reps" style="width:auto; height:auto;"><%= @exercise.reps%></textarea> -->

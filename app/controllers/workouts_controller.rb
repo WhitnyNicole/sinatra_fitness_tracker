@@ -4,12 +4,11 @@ class WorkoutsController < ApplicationController
 #     erb :"/workouts/index"
 #   end
 #
-  # GET: /workouts/new
+
   get "/workouts/new" do
     erb :"workouts/new"
   end
-#
-  # POST: /workouts
+
   post "/workouts" do
     if !logged_in?
       redirect '/'
@@ -17,11 +16,11 @@ class WorkoutsController < ApplicationController
     if params[:category] != ""
       @workout = Workout.create(category: params[:category], user_id: current_user.id)
       redirect "/exercises/new"
-      # redirect "/users/#{user.id}"
     else
       redirect 'workouts/new'
     end
   end
+
 
   # post "/workouts" do
   #   workout = Workout.new(params)
@@ -36,40 +35,30 @@ class WorkoutsController < ApplicationController
   #   end
   # end
 
-#
-# GET: /workouts/show
+
   get "/workouts/:id" do
-    @workout = Workout.find(params[:id])
+    set_workout
     erb :"workouts/show"
   end
 
   get "/workouts/:id/edit" do
+    set_workout
     erb :"workouts/edit"
   end
-#
-# POST: /workouts
-  # post "/workouts" do
-  #   erb :"workouts/show"
-  # # redirect "/workouts"
-  # end
 
-#   # GET: /workouts/5
-#   get "/workouts/:id" do
-#     erb :"/workouts/show.html"
-#   end
-#
-#   # GET: /workouts/5/edit
-#   get "/workouts/:id/edit" do
-#     erb :"/workouts/edit.html"
-#   end
-#
-#   # PATCH: /workouts/5
-#   patch "/workouts/:id" do
-#     redirect "/workouts/:id"
-#   end
+  patch "/workouts/:id" do
+    set_workout
+    redirect "/workouts/:id"
+  end
 #
 #   # DELETE: /workouts/5/delete
 #   delete "/workouts/:id/delete" do
 #     redirect "/workouts"
 #   end
+
+
+private
+  def set_workout
+    @workout = Workout.find(params[:id])
+  end
 end
