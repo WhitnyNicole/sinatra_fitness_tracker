@@ -2,4 +2,8 @@
 
 <p><%= @workout.category %></p>
 
-<a href="/workouts/<%= @workout.id %>/edit">Edit Category</a>
+<% if current_user == @workout.user %>
+  <a href="/workouts/<%= @workout.id %>/edit">Edit Category</a>
+
+
+<% end %>
