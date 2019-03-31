@@ -15,8 +15,8 @@ class ExercisesController < ApplicationController
     if !logged_in?
       redirect '/'
     end
-    if params[:reps] && params[:weight] && params[:day] != ""
-      @exercise = Exercise.create(reps: params[:reps], weight: params[:weight], day: params[:day])
+    if params[:reps] && params[:weight] && params[:day] && params[:intensity]!= ""
+      @exercise = Exercise.create(reps: params[:reps], weight: params[:weight], day: params[:day], intensity: params[:intensity])
       flash[:message] = "Congrats, you've entered a new exercise!"
       redirect "/exercises"
     else
