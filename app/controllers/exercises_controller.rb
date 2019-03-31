@@ -1,8 +1,8 @@
 class ExercisesController < ApplicationController
 #   # GET: /exercises
-#   get "/exercises" do
-#     erb :"/exercises/index.html"
-#   end
+  get "/exercises" do
+    erb :"exercises/index"
+  end
 #
   # GET: /exercises/new
   get "/exercises/new" do
@@ -15,7 +15,7 @@ class ExercisesController < ApplicationController
       redirect '/'
     end
     if params[:reps] && params[:weight] && params[:day] != ""
-      @workout = Workout.create(reps: params[:reps], user_id: current_user.id, weight: params[:weight], day: params[:day])
+      @exercise = Exercise.create(reps: params[:reps], weight: params[:weight], day: params[:day])
       flash[:message] = "Congrats, you've entered a new exercise!"
       redirect "/exercises"
     else
@@ -23,17 +23,27 @@ class ExercisesController < ApplicationController
       redirect 'exercises/new'
     end
   end
-# #
-#   # GET: /exercises/5
-#   get "/exercises/:id" do
-#     erb :"/exercises/show.html"
-#   end
-#
-#   # GET: /exercises/5/edit
-#   get "/exercises/:id/edit" do
-#     erb :"/exercises/edit.html"
-#   end
-#
+
+  get "/exercises/:id" do
+    set_exercises
+    erb :"exercises/show"
+  end
+
+  get "/exercises/:id/edit" do
+    set_exercises
+    if logged_in?
+      if @exercise.user == current_user
+        erb :"exercises/edit"
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect "/"
+    end
+  end
+
+
+
 #   # PATCH: /exercises/5
 #   patch "/exercises/:id" do
 #     redirect "/exercises/:id"
@@ -43,4 +53,9 @@ class ExercisesController < ApplicationController
 #   delete "/exercises/:id/delete" do
 #     redirect "/exercises"
 #   end
+
+private
+  def set_exercise
+    @exercise = Exercise.find(params[:id])
+  end
 end

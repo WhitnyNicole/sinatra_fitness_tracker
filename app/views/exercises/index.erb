@@ -1,1 +1,10 @@
-<h1>This is the Model's index page.</h1>
+<h1>All Completed Exercises</h1>
+
+<% @exercises.each do |exercise| %>
+  <h4><a href= "/exercises/<%= exercise.id %>"><%= exercise.created_at %></a></h4>
+  <p><%= exercise.reps %></p>
+  <p><%= exercise.weight %></p>
+  <p><%= exercise.day %></p>
+  <!-- <p>By: <%= exercise.user.name %> </p> -->
+  <br><br>
+<% end %>
