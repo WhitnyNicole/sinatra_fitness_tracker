@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       # redirect "workouts/show"
       flash[:message] = "You have successfully created an account. Welcome!"
-      redirect "/users/#{user.id}"
+      redirect "/users/#{@user.id}"
     else
       flash[:errors] = "Sorry, please create an account."
       redirect 'signup'
