@@ -10,12 +10,10 @@ class WorkoutsController < ApplicationController
   end
 
   post "/workouts" do
-    if !logged_in?
-      redirect '/'
-    end
+    redirect_if_not_logged_in
     if params[:category] != ""
       @workout = Workout.create(category: params[:category], user_id: current_user.id)
-      flash[:message] = "Congrats, you entered a new workout!"
+      flash[:message] = "Congrats, you entered a new workout!" if @workout.id
       redirect "/exercises/new"
     else
       flash[:errors] = "Oops, that workout could not be created."
