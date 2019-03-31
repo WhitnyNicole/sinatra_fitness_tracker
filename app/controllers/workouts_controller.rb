@@ -43,13 +43,32 @@ class WorkoutsController < ApplicationController
 
   get "/workouts/:id/edit" do
     set_workout
-    erb :"workouts/edit"
+    if logged_in?
+      if @workut.user == current_user
+        erb :"workouts/edit"
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect "/"
+    end
   end
+
 
   patch "/workouts/:id" do
     set_workout
-    redirect "/workouts/:id"
+    if logged_in?
+      if @workut.user == current_user
+        @workout.update(category: params[:category])
+        redirect "/workouts/#{@workout.id}"
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect "/"
+    end
   end
+
 #
 #   # DELETE: /workouts/5/delete
 #   delete "/workouts/:id/delete" do
