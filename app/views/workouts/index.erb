@@ -2,7 +2,8 @@
 
 <% @workouts.each do |workout| %>
   <h4><a href= "/workouts/<%= workout.id %>"><%= workout.created_at %></a></h4>
-  <p><%= workout.category %></p>
-  <p>By: <%= workout.user.name %> </p>
+  <br><br>
+  <p><strong><%= workout.user.name %></strong> completed:</p>
+  <p>A <%= workout.category %> workout today!</p>
   <br><br>
 <% end %>

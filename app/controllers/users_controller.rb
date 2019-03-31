@@ -19,9 +19,9 @@ class UsersController < ApplicationController
   end
 
   post '/users' do
-    user = User.new(params)
-    if user.save
-      session[:user_id] = user.id
+    @user = User.new(params)
+    if @user.save
+      session[:user_id] = @user.id
       # redirect "workouts/show"
       flash[:message] = "You have successfully created an account. Welcome!"
       redirect "/users/#{@user.id}"

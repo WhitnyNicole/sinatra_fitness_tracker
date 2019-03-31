@@ -25,6 +25,14 @@ class ApplicationController < Sinatra::Base
       @current_user ||= User.find(session[:user_id])
     end
 
+    def authorized_to_edit_workout?(workout)
+      workout.user == current_user
+    end
+
+    def authorized_to_edit_exercise?(exercise)
+      exercise.user == current_user
+    end
+
     def redirect_if_not_logged_in
       if !logged_in?
         flash[:errors] = "You must be logged in to view the page you tried to view."

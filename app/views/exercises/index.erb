@@ -2,9 +2,9 @@
 
 <% @exercises.each do |exercise| %>
   <h4><a href= "/exercises/<%= exercise.id %>"><%= exercise.created_at %></a></h4>
+  <br><br>
   <p>Completed Date: <%= exercise.day %></p>
-  <p>Reps Completed<%= exercise.reps %></p>
+  <p>Reps Completed: <%= exercise.reps %></p>
   <p>Weight Used: <%= exercise.weight %></p>
   <br><br>
 <% end %>
-<h1>All Completed Workouts</h1>
