@@ -4,6 +4,9 @@
 
 <% if current_user == @workout.user %>
   <a href="/workouts/<%= @workout.id %>/edit">Edit Category</a>
-
-
+<br><br>
+<form class="" action="/workouts/<%= @workout.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete This Category">
+</form>
 <% end %>
