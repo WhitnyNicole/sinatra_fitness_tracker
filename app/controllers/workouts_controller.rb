@@ -1,8 +1,9 @@
 class WorkoutsController < ApplicationController
-#   # GET: /workouts
-#   get "/workouts" do
-#     erb :"/workouts/index"
-#   end
+
+  get "/workouts" do
+    @workouts = Workout.all
+    erb :"/workouts/index"
+  end
 #
 
   get "/workouts/new" do
