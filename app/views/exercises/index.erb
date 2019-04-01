@@ -1,12 +1,18 @@
-<h1>All Completed Exercises</h1>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>All Completed Exercises!</h1>
 
 <% @exercises.each do |exercise| %>
   <h4><a href= "/exercises/<%= exercise.id %>"><%= exercise.formatted_created_at_time %></a></h4>
   <br><br>
-  <p>Completed on <%= exercise.formatted_day %></p>
+  <p>Completed on <%= exercise.day %></p>
   <p>Completed <%= exercise.reps %> reps</p>
   <p>Used <%= exercise.weight %> pounds</p>
   <p>Intensity: <%= exercise.intensity %></p>
   <p> ----------------------------------</p>
   <br><br>
 <% end %>
+
+</body>
+</html>

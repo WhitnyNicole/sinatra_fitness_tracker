@@ -6,5 +6,5 @@ class Exercise < ActiveRecord::Base
 
   def formatted_day
     self.created_at.strftime("%A, %b %d")
-  end
+  end 
 end
