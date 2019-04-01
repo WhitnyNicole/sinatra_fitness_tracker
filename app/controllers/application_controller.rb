@@ -25,6 +25,10 @@ class ApplicationController < Sinatra::Base
       @current_user ||= User.find(session[:user_id])
     end
 
+    def current_workout
+      @current_workout ||= Workout.find(session[:workout_id])
+    end
+
     def authorized_to_edit_workout?(workout)
       workout.user == current_user
     end
