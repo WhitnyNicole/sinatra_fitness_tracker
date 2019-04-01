@@ -1,7 +1,7 @@
 <h1>All Completed Exercises</h1>
 
 <% @exercises.each do |exercise| %>
-  <h4><a href= "/exercises/<%= exercise.id %>"><%= exercise.created_at %></a></h4>
+  <h4><a href= "/exercises/<%= exercise.id %>"><%= exercise.formatted_created_at_time %></a></h4>
   <br><br>
   <p>Completed Date: <%= exercise.day %></p>
   <p>Reps Completed: <%= exercise.reps %></p>
