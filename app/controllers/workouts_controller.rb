@@ -14,7 +14,7 @@ class WorkoutsController < ApplicationController
     if params[:category] != ""
       @workout = Workout.create(category: params[:category], user_id: current_user.id)
       flash[:message] = "Congrats, you entered a new workout!" if @workout.id
-      redirect "/exercises/new"
+      redirect "/workouts/#{@workout.id}"
     else
       flash[:errors] = "Oops, that workout could not be created."
       redirect 'workouts/new'

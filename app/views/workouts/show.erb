@@ -10,3 +10,19 @@
   <input type="submit" value="Delete This Category">
 </form>
 <% end %>
+
+<h2>Add Today's Workout!</h2>
+<br><br>
+<h4>Log Completed Workout Below:</h4>
+<form action="/exercises" method="POST">
+<br><br>
+ <input type="hidden" name="workout_id" value="<%= @workout.id %>">
+ <p>How many reps?: <input type="text" name="reps" placeholder="10">reps</p>
+ <p>What weight did you use?: <input type="integer" name="weight" placeholder="35">pounds</p>
+ <p>Completed Date?: <input type="datetime" name="day" placeholder="March 3rd">2019</p>
+ <p>Intensity:
+ <input type="radio" name="intensity" value="Easy">Easy
+ <input type="radio" name="intensity" value="Medium">Medium
+ <input type="radio" name="intensity" value="Hard">Hard</p>
+ <input type="submit" value= "Create New Workout">
+</form>

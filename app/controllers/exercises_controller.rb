@@ -16,12 +16,12 @@ class ExercisesController < ApplicationController
       redirect '/'
     end
     if params[:reps] && params[:weight] && params[:day] && params[:intensity]!= ""
-      @exercise = Exercise.create(reps: params[:reps], weight: params[:weight], day: params[:day], intensity: params[:intensity])
+      @exercise = Exercise.new(params)
       flash[:message] = "Congrats, you've entered a new exercise!"
       redirect "/exercises"
     else
       flash[:errors] = "Oops, that exercise could not be created."
-      redirect 'exercises/new'
+      redirect "/workouts/#{@workout.id}"
     end
   end
 
@@ -32,8 +32,7 @@ class ExercisesController < ApplicationController
 
   get "/exercises/:id/edit" do
     set_exercise
-    if logged_in?
-      # if @exercise.user == current_user
+    if logged_in? && @exercise.workout.user == current_user
         erb :"exercises/edit"
       # else
       #   redirect "users/#{current_user.id}"
