@@ -1,20 +1,20 @@
 class ExercisesController < ApplicationController
-#   # GET: /exercises
-  get "/exercises" do
-    @exercises = Exercise.all
-    erb :"exercises/index"
-  end
-#
-  # GET: /exercises/new
+
+    get "/exercises" do
+      @exercises = current_user.exercises
+      binding.pry
+      erb :"exercises/index"
+    end
+
   get "/exercises/new" do
     erb :"/exercises/new"
   end
 
-  # POST: /exercises
   post "/exercises" do
     redirect_if_not_logged_in
     if params[:reps] && params[:weight] && params[:day] && params[:intensity] && params[:workout_id]!= ""
       @exercise = Exercise.new(params)
+      @exercise.save
       flash[:message] = "Congrats, you've entered a new exercise!"
       redirect "/exercises/#{@exercise.id}"
     else
@@ -22,6 +22,7 @@ class ExercisesController < ApplicationController
       redirect "/exercises/new"
     end
   end
+
 
   get "/exercises/:id" do
     set_exercise
