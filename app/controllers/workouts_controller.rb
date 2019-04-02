@@ -1,6 +1,7 @@
 class WorkoutsController < ApplicationController
 
   get "/workouts" do
+    binding.pry
     @workouts = Workout.all
     erb :"/workouts/index"
   end
@@ -66,9 +67,11 @@ class WorkoutsController < ApplicationController
     set_workout
     redirect_if_not_logged_in
       if @workout.user == current_user && params[:category] != ""
-        @workout.update(category: params[:category])
-        redirect "/workouts/#{@workout.id}"
+         @workout.update(category: params[:category])
+         flash[:message] = "Your changes were saved!"
+         redirect "/workouts/#{@workout.id}"
       else
+        flash[:errors] = "Sorry, you cannot edit that entry."
         redirect "users/#{current_user.id}"
       end
     end

@@ -42,15 +42,31 @@ class ExercisesController < ApplicationController
 
 
 
-#   # PATCH: /exercises/5
-#   patch "/exercises/:id" do
-#     redirect "/exercises/:id"
-#   end
-#
-#   # DELETE: /exercises/5/delete
-#   delete "/exercises/:id/delete" do
-#     redirect "/exercises"
-#   end
+
+    patch "/exercises/:id" do
+      set_exercise
+      redirect_if_not_logged_in
+        if @exercise.workout.user == current_user && params[:reps] && params[:weight] && params[:day] && params[:intensity]!= ""
+           @workout.update(params)
+           flash[:message] = "Your changes were saved!"
+          redirect "/exercises/#{exercise.id}"
+        else
+        flash[:errors] = "Sorry, you cannot edit that entry."
+        redirect "users/#{current_user.id}"
+      end
+    end
+
+    delete "/exercises/:id" do
+      set_exercise
+      if @exercise.workout.user == current_user
+        @exercise.destroy
+        flash[:message] = "That entry was successfully deleted."
+      redirect "/exercises"
+      else 
+      flash[:errors] = "Sorry, you cannot delete that entry."
+      redirect "/exercises"
+      end
+    end
 
 private
   def set_exercise
