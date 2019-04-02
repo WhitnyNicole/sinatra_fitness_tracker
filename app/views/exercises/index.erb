@@ -4,19 +4,22 @@
 <h1>All Completed Exercises!</h1>
 
 <style>
-p {
+div {
   border-style: solid;
-  border-width: medium;
+  border-width: thin;
 }
 </style>
 
 <% @exercises.each do |exercise| %>
+<div>
   <h4><a href= "/exercises/<%= exercise.id %>"><%= exercise.formatted_created_at_time %></a></h4>
   <br><br>
   <p>Completed on: <%= exercise.day %></p>
   <p>Completed <%= exercise.reps %> reps</p>
   <p>Used <%= exercise.weight %> pounds</p>
   <p>Intensity: <%= exercise.intensity %></p>
+  <br><br>
+</div>
   <br><br>
 <% end %>
 

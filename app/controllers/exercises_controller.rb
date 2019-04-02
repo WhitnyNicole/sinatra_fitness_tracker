@@ -1,10 +1,11 @@
 class ExercisesController < ApplicationController
 
     get "/exercises" do
-      @exercises = current_user.exercises
-      binding.pry
+      @exercises = Exercise.all
+      # binding.pry
       erb :"exercises/index"
     end
+# current_user.exercises
 
   get "/exercises/new" do
     erb :"/exercises/new"

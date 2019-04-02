@@ -4,19 +4,23 @@
 <h1>All Completed Workouts</h1>
 
 <style>
-p {
+div {
   border-style: solid;
-  border-width: medium;
+  border-width: thin;
 }
 </style>
 
 <% @workouts.each do |workout| %>
+<div>
   <h4><a href= "/workouts/<%= workout.id %>"><%= workout.formatted_created_at_time %></a></h4>
   <br><br>
   <p><strong><%= workout.user.name %></strong> completed:</p>
   <p>A <%= workout.category %> workout today!</p>
   <br><br>
+  </div>
+  <br><br>
 <% end %>
+
 
 </body>
 </html>
