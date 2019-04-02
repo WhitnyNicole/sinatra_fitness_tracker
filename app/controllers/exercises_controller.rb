@@ -62,7 +62,7 @@ class ExercisesController < ApplicationController
         @exercise.destroy
         flash[:message] = "That entry was successfully deleted."
       redirect "/exercises"
-      else 
+      else
       flash[:errors] = "Sorry, you cannot delete that entry."
       redirect "/exercises"
       end

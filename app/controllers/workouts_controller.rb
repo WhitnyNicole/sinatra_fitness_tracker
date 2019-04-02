@@ -1,8 +1,7 @@
 class WorkoutsController < ApplicationController
 
   get "/workouts" do
-    binding.pry
-    @workouts = Workout.all
+    @workouts = current_user.workouts
     erb :"/workouts/index"
   end
 
