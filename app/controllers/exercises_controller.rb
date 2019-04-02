@@ -12,16 +12,14 @@ class ExercisesController < ApplicationController
 
   # POST: /exercises
   post "/exercises" do
-    if !logged_in?
-      redirect '/'
-    end
-    if params[:reps] && params[:weight] && params[:day] && params[:intensity]!= ""
+    redirect_if_not_logged_in
+    if params[:reps] && params[:weight] && params[:day] && params[:intensity] && params[:workout_id]!= ""
       @exercise = Exercise.new(params)
       flash[:message] = "Congrats, you've entered a new exercise!"
-      redirect "/exercises"
+      redirect "/exercises/#{@exercise.id}"
     else
       flash[:errors] = "Oops, that exercise could not be created."
-      redirect "/workouts/#{@workout.id}"
+      redirect "/exercises/new"
     end
   end
 
@@ -33,16 +31,12 @@ class ExercisesController < ApplicationController
   get "/exercises/:id/edit" do
     set_exercise
     redirect_if_not_logged_in
-    binding.pry
     if @exercise.workout.user == current_user
         erb :"exercises/edit"
     else
       redirect "users/#{current_user.id}"
     end
   end
-
-
-
 
     patch "/exercises/:id" do
       set_exercise
