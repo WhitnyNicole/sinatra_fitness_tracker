@@ -1,6 +1,7 @@
 <h1>Here are your workouts</h1>
 <br><br>
 <p>Today's workout category: <%= @workout.category %></p>
+
 <p><strong> Need to make changes? Edit or Delete Below: </strong></p>
 <% if current_user == @workout.user %>
   <a href="/workouts/<%= @workout.id %>/edit">Edit Category</a>
