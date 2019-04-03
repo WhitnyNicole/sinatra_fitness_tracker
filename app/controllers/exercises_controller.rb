@@ -43,6 +43,7 @@ class ExercisesController < ApplicationController
       set_exercise
       redirect_if_not_logged_in
         if @exercise.workout.user == current_user && params[:reps] && params[:weight] && params[:day] && params[:intensity]!= ""
+          binding.pry
            @exercise.update(params)
            flash[:message] = "Your changes were saved!"
           redirect "/exercises/#{exercise.id}"
