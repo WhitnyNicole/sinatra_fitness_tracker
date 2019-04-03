@@ -1,8 +1,10 @@
 <h1>Here are your exercises</h1>
 
 <p>Completed on: <%= @exercise.day %></p>
-<p>Completed reps:<%= @exercise.reps %></p>
-<p>Weight used:<%= @exercise.weight %></p>
+<p>Move: <%= @exercise.move %></p>
+<p>Completed sets: <%= @exercise.sets %></p>
+<p>Completed reps: <%= @exercise.reps %></p>
+<p>Weight used: <%= @exercise.weight %></p>
 <p>Intensity: <%= @exercise.intensity %></p>
 <% if current_user == @exercise.workout.user %>
   <a href="/exercises/<%= @exercise.id %>/edit">Edit Exercise</a>

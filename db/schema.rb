@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190331231939) do
+ActiveRecord::Schema.define(version: 20190403012632) do
 
   create_table "exercises", force: :cascade do |t|
     t.integer  "reps"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20190331231939) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "intensity"
+    t.string   "move"
+    t.integer  "sets"
   end
 
   create_table "users", force: :cascade do |t|

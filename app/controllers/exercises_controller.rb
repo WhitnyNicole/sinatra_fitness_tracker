@@ -12,7 +12,7 @@ class ExercisesController < ApplicationController
 
   post "/exercises" do
     redirect_if_not_logged_in
-    if params[:reps] && params[:weight] && params[:day] && params[:intensity] && params[:workout_id]!= ""
+    if params[:reps] && params[:weight] && params[:day] && params[:intensity] && params[:move] && params[:sets] && params[:workout_id]!= ""
       @exercise = Exercise.new(params)
       @exercise.save
       flash[:message] = "Congrats, you've entered a new exercise!"
@@ -42,7 +42,7 @@ class ExercisesController < ApplicationController
     patch "/exercises/:id" do
       set_exercise
       redirect_if_not_logged_in
-        if @exercise.workout.user == current_user && params[:reps] && params[:weight] && params[:day] && params[:intensity]!= ""
+        if @exercise.workout.user == current_user && params[:reps] && params[:weight] && params[:day] && params[:intensity] && params[:move] && params[:sets] != ""
           binding.pry
            @exercise.update(params)
            flash[:message] = "Your changes were saved!"
