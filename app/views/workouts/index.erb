@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>All Completed Workouts</h1>
+<h1>All Completed Workouts!</h1>
 <br><br>
+<p>Nice work! Here's what you've done so far: </p>
 <br><br>
-<style>
-div {
-  border-style: solid;
-  border-width: thin;
-}
-</style>
 <% @workouts.each do |workout| %>
-<div>
-  <h4><a href= "/workouts/<%= workout.id %>"><%= workout.formatted_created_at_time %></a></h4>
-  <br><br>
+  <p><a href= "/workouts/<%= workout.id %>"><%= workout.formatted_created_at_time %></a></p>
   <p><strong><%= workout.category %></strong> workout completed!</p>
   <br><br>
-  </div>
-  <br><br>
 <% end %>
+<p><a href="/workouts/new" class="button">Add</a> a new workout.
 </body>
 </html>
