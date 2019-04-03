@@ -1,7 +1,7 @@
-<h1>Here are your workouts</h1>
+<h2>Here are your workouts:</h2>
 <br><br>
 <p>Today's workout category: <%= @workout.category %></p>
-
+<br><br>
 <p><strong> Need to make changes? Edit or Delete Below: </strong></p>
 <% if current_user == @workout.user %>
   <a href="/workouts/<%= @workout.id %>/edit">Edit Category</a>
@@ -13,9 +13,8 @@
 <% end %>
 
 <br><br>
-<h1>Add Exercise to Today's Workout!</h1>
+<h2>Log what you did today:</h2>
 <br><br>
-<p><strong>Log What You Did Today:</strong></p>
 <form action="/exercises" method="POST">
  <input type="hidden" name="workout_id" value="<%= @workout.id %>">
  <p>How many reps?: <input type="text" name="reps" placeholder="10">reps</p>
