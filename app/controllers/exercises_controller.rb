@@ -15,7 +15,6 @@ class ExercisesController < ApplicationController
     if params[:reps] && params[:weight] && params[:day] && params[:intensity] && params[:move] && params[:sets] && params[:workout_id]!= ""
       @exercise = Exercise.new(params)
       @exercise.save
-      binding.pry
       flash[:message] = "Congrats, you've entered a new exercise!"
       redirect "/exercises/#{@exercise.id}"
     else
