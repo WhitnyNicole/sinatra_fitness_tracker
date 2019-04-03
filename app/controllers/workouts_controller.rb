@@ -11,9 +11,8 @@ class WorkoutsController < ApplicationController
 
   post "/workouts" do
     redirect_if_not_logged_in
-    if params[:category] && params[:duration] && params[:user_id]!= ""
-      @workout = Workout.new(params)
-      @workout.save
+    if params[:category] && params[:duration] != ""
+      @workout = Workout.create(category: params[:category], duration: params[:durations], user_id: current_user.id)
       flash[:message] = "Congrats, you entered a new workout!" if @workout.id
       redirect "/workouts/#{@workout.id}"
     else
@@ -22,36 +21,10 @@ class WorkoutsController < ApplicationController
     end
   end
 
-  # post "/workouts" do
-  #   workout = Workout.new(params)
-  #   if workout.save
-  #     session[:user_id] = user.id
-  #     # redirect "workouts/show"
-  #     flash[:message] = "You have selected a category. Now add the details!"
-  #     redirect "/workouts/#{@workout.id}"
-  #   else
-  #     flash[:message] = "Sorry, please select a category."
-  #     redirect 'workouts/new'
-  #   end
-  # end
-
   get "/workouts/:id" do
     set_workout
     erb :"workouts/show"
   end
-
-  # get "/workouts/:id/edit" do
-  #   set_workout
-  #   if logged_in?
-  #     if @workout.user == current_user
-  #       erb :"workouts/edit"
-  #     else
-  #       redirect "users/#{current_user.id}"
-  #     end
-  #   else
-  #     redirect "/"
-  #   end
-  # end
 
   get "/workouts/:id/edit" do
     set_workout
@@ -75,21 +48,6 @@ class WorkoutsController < ApplicationController
         redirect "users/#{current_user.id}"
       end
     end
-
-  # patch "/workouts/:id" do
-  #   set_workout
-  #   if logged_in?
-  #     if @workout.user == current_user && params[:category] != ""
-  #       @workout.update(category: params[:category])
-  #       redirect "/workouts/#{@workout.id}"
-  #     else
-  #       redirect "users/#{current_user.id}"
-  #     end
-  #   else
-  #     flash[:errors] = "Sorry, you cannot edit that entry."
-  #     redirect "/"
-  #   end
-  # end
 
   delete "/workouts/:id" do
     set_workout
