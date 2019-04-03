@@ -16,11 +16,15 @@
   <body>
 
     <div class="nav">
-        <a href="/">Home</a>
+      <a href="/">Home</a>
+      <% if logged_in? %>
         <a href="/workouts">My Workouts</a>
         <a href="/workouts/new">New Workout</a>
         <a href="/exercises">My Exercises</a>
         <a href="/logout">Logout</a>
+        <% else %> 
+        <a href="/login">Log in</a>
+        <% end %>
     </div>
 
     <div class="wrapper">
