@@ -1,12 +1,12 @@
-<h2>Here are your exercises</h2>
+<h2>Here is your list of completed workouts!</h2>
 <br><br>
-<p><%= @exercise.workout.category %></p>
-<p>Completed on: <%= @exercise.day %></p>
-<p>Move: <%= @exercise.move %></p>
-<p>Completed sets: <%= @exercise.sets %></p>
-<p>Completed reps: <%= @exercise.reps %></p>
-<p>Weight used: <%= @exercise.weight %></p>
-<p>Intensity: <%= @exercise.intensity %></p>
+  <li><%= @exercise.day %>:</li>
+  <li><%= @exercise.workout.category %></li>
+  <li>Move: <%= @exercise.move %></p>
+  <li>Completed sets: <%= @exercise.sets %></li>
+  <li>Completed reps: <%= @exercise.reps %></li>
+  <li>Weight used: <%= @exercise.weight %></li>
+  <li>Intensity: <%= @exercise.intensity %></li>
 <% if current_user == @exercise.workout.user %>
   <a href="/exercises/<%= @exercise.id %>/edit">Edit Exercise</a>
 <br><br>

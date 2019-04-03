@@ -1,7 +1,7 @@
 <h1> Edit an Exercise:</h1>
 <br><br>
 <form action="/exercises/<%= @exercise.id %>" method="POST">
-  <h4>Edit Completed Workout Below:</h4>
+  <h4>Please make your changes below:</h4>
   <br><br>
   <input type="hidden" name="_method" value="patch">
   <p>What move did you do?: <input type="text" name="move" placeholder="bicep curls"></p>
@@ -9,7 +9,9 @@
   <p>How many reps?: <input type="text" name="reps" placeholder="10"></p>
   <p>What weight did you use?: <input type="integer" name="weight" placeholder="35"></p>
   <p>Completed Date?: <input type="datetime" name="day" placeholder="March 3 2019"></p>
-  <p>Intensity?: <input type="text" name="intensity" placeholder="Hard"></p>
-  <br><br>
- <input type="submit" value= "Edit Workout">
+  <p>Intensity:
+  <input type="radio" name="intensity" value="Easy">Easy
+  <input type="radio" name="intensity" value="Medium">Medium
+  <input type="radio" name="intensity" value="Hard">Hard</p>
+  <input type="submit" value= "Save Changes">
 </form>

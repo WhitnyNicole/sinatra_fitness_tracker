@@ -34,9 +34,9 @@ class ApplicationController < Sinatra::Base
       @workout.user == current_user
     end
 
-    # def authorized_to_edit_exercise?(exercise)
-    #   exercise.user == current_user
-    # end
+    def authorized_to_edit_exercise?(exercise)
+      @exercise.workout.user == current_user
+    end
 
     def redirect_if_not_logged_in
       if !logged_in?

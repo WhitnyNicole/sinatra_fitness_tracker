@@ -32,7 +32,7 @@ class ExercisesController < ApplicationController
     get "/exercises/:id/edit" do
       set_exercise
       redirect_if_not_logged_in
-      if @exercise.workout.user == current_user
+      if authorized_to_edit_exercise?(@exercise)
         erb :"exercises/edit"
       else
         redirect "users/#{current_user.id}"
