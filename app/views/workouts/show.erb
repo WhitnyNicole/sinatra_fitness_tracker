@@ -1,6 +1,7 @@
 <h2>Here are your workouts:</h2>
 <br><br>
 <p>Today's workout category: <%= @workout.category %></p>
+<p>Today's workout lasted: <%= @workout.duration %> minutes</p>
 <br><br>
 <p><strong> Need to make changes? Edit or Delete Below: </strong></p>
 <% if current_user == @workout.user %>

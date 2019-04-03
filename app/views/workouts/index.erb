@@ -8,6 +8,7 @@
 <% @workouts.each do |workout| %>
   <p><a href= "/workouts/<%= workout.id %>"><%= workout.formatted_created_at_time %></a></p>
   <p><strong><%= workout.category %></strong> workout completed!</p>
+  <p><strong><%= workout.duration %></strong> minute workout completed!</p>
   <br><br>
 <% end %>
 <p><a href="/workouts/new" class="button">Add</a> a new workout.

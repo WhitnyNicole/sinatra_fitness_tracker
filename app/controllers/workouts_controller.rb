@@ -11,8 +11,9 @@ class WorkoutsController < ApplicationController
 
   post "/workouts" do
     redirect_if_not_logged_in
-    if params[:category] != ""
-      @workout = Workout.create(category: params[:category], user_id: current_user.id)
+    if params[:category] && params[:duration] && params[:user_id]!= ""
+      @workout = Workout.new(params)
+      @workout.save
       flash[:message] = "Congrats, you entered a new workout!" if @workout.id
       redirect "/workouts/#{@workout.id}"
     else
@@ -65,8 +66,8 @@ class WorkoutsController < ApplicationController
   patch "/workouts/:id" do
     set_workout
     redirect_if_not_logged_in
-      if @workout.user == current_user && params[:category] != ""
-         @workout.update(category: params[:category])
+      if @workout.user == current_user && params[:category] && params[:duration] != ""
+         @workout.update(category: params[:category], duration: params[:duration])
          flash[:message] = "Your changes were saved!"
          redirect "/workouts/#{@workout.id}"
       else
