@@ -2,6 +2,9 @@
 <html>
 <head>
 <h1>All Completed Exercises!</h1>
+<br><br>
+<p><a href="/workouts/new">Add</a> a new workout!
+<br><br>
 <style>
 ul {
   list-style-type: square;
@@ -13,17 +16,16 @@ ul {
   <h4><a href= "/exercises/<%= exercise.id %>"><%= exercise.formatted_created_at_time %></a></h4>
 <ul>
   <li><strong><%= exercise.day %></strong></li>
-  <li><%= exercise.workout.category %></li>
-  <li>Completed <%= exercise.move %></li>
-  <li>Completed <%= exercise.sets %> sets </li>
-  <li>Completed <%= exercise.reps %> reps</li>
-  <li>Used <%= exercise.weight %> pounds</li>
+  <li>Category: <%= exercise.workout.category %></li>
+  <li>Move: <%= exercise.move %></li>
+  <li>Sets: <%= exercise.sets %> sets </li>
+  <li>Reps: <%= exercise.reps %> reps</li>
+  <li>Weight: <%= exercise.weight %> pounds</li>
   <li>Intensity: <%= exercise.intensity %></li>
   <li>-----------------------------------------------</li>
   <br><br>
 </ul>
   <br><br>
 <% end %>
-<p><a href="/workouts/new">Add</a> a new workout.
 </body>
 </html>
