@@ -52,7 +52,7 @@ class WorkoutsController < ApplicationController
   delete "/workouts/:id" do
     set_workout
     if authorized_to_edit_workout?(@workout)
-      @workout.category.destroy
+      @workout.destroy
       flash[:message] = "That entry was successfully deleted."
       redirect "/workouts"
     else
