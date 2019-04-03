@@ -3,12 +3,12 @@
 <form action="/workouts/<%= @workout.id %>" method="POST">
   <h2> Edit a category below: </h2>
   <input type="hidden" name="_method" value="patch">
-  <input type="radio" name="category" value="Arms">Arms<br>
-  <input type="radio" name="category" value="Abs">Abs<br>
-  <input type="radio" name="category" value="Back">Back<br>
-  <input type="radio" name="category" value="Legs">Legs<br>
-  <input type="radio" name="category" value="Chest">Chest<br>
-  <input type="radio" name="category" value="Full Body">Full Body<br>
+  <input type="radio" name="category" value="<%= @workout.category %>">Arms<br>
+  <input type="radio" name="category" value="<%= @workout.category %>">Abs<br>
+  <input type="radio" name="category" value="<%= @workout.category %>">Back<br>
+  <input type="radio" name="category" value="<%= @workout.category %>">Legs<br>
+  <input type="radio" name="category" value="<%= @workout.category %>">Chest<br>
+  <input type="radio" name="category" value="<%= @workout.category %>">Full Body<br>
   <br><br>
   <input type="radio" name="duration" value="15">15 minutes<br>
   <input type="radio" name="duration" value="30">30 minutes<br>
