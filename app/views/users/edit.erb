@@ -1,9 +1,0 @@
-<h1>Update your information here:</h1>
-<br><br>
-<form action="/users/<%= @user.id %>" method="POST">
-  <input type="hidden" name="_method" value="patch">
-  <p>Name: <input type="text" name="name" placeholder="Jane Doe" value= "<%= @user.name %>"></p>
-  <p>Email: <input type="text" name="email" placeholder="janedoe@gmail.com" value= "<%= @user.email %>"></p>
-  <p>Password: <input type="password" name="password" placeholder="MyPassword" value= "<%= @user.password %>"></p>
-  <input type="submit" value="Save Changes">
-</form>
