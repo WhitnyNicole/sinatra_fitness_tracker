@@ -1,5 +1,5 @@
 class AddDurationToWorkouts < ActiveRecord::Migration
   def change
-    add_column :workouts, :duration, :integer, default: 30
+    add_column :workouts, :duration, :integer
   end
 end
