@@ -1,9 +1,8 @@
 <h2>Here are your workouts:</h2>
-<p> Today's workout: </p>
-<p><strong><%= @workout.category %></strong></p>
-<p><strong><%= @workout.duration %> minutes</strong></p>
+<p><strong> Today's workout: </strong></p>
+<p>Category: <%= @workout.category %></p>
+<p>Duration: <%= @workout.duration %> minutes</p>
 <br><br>
-<p><strong> Need to make changes? Edit or Delete Below: </strong></p>
 <% if current_user == @workout.user %>
   <a href="/workouts/<%= @workout.id %>/edit">Edit Category</a>
 <br><br>

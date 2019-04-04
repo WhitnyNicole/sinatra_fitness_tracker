@@ -1,7 +1,7 @@
 <h1>Record Today's Workout!</h1>
 <br><br>
 <form action="/workouts" method="POST">
-  <h4><label for="category">Categories: </label><br><br></h4>
+  <h4><label for="category">Category: </label><br><br></h4>
     <% ["arms", "abs", "back", "legs", "chest", "full body"].each do |element| %>
         <input type="radio" name="category" value="<%= element.capitalize %>"> <%= element.capitalize %> <br>
     <% end %>
