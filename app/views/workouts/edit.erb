@@ -4,13 +4,21 @@
   <h2> Edit a category below: </h2>
   <input type="hidden" name="_method" value="patch">
   <% ["arms", "abs", "back", "legs", "chest", "full body"].each do |element| %>
-    <input type="radio" name="category" value="<%= element.capitalize %>"> <%= element.capitalize %> <br>
+    <% if @workout.category.downcase == element %>
+      <input type="radio" name="category" value="<%= element.capitalize %>"checked> <%= element.capitalize %> <br>
+    <% else %>
+      <input type="radio" name="category" value="<%= element.capitalize %>"> <%= element.capitalize %> <br>
+    <% end %>
   <% end %>
 <br><br>
   <% (0..120).step(15) do |n| %>
-  <% unless n == 0 || n == 75 || n == 105 %>
-    <input type="radio" name="duration" value="<%= n %>"> <%= "#{n} minutes"%><br>
-  <% end %>
+    <% unless n == 0 || n == 75 || n == 105 %>
+      <% if @workout.duration == n %>
+        <input type="radio" name="duration" value="<%= n %>"checked> <%= "#{n} minutes"%><br>
+      <% else %>
+          <input type="radio" name="duration" value="<%= n %>"> <%= "#{n} minutes"%><br>
+      <% end %>
+    <% end %>
   <% end %>
   <br><br>
   <input type="submit" name="" value="Save Changes">
