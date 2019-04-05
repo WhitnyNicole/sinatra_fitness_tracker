@@ -5,6 +5,17 @@ class UsersController < ApplicationController
       erb :'users/show'
     end
 
+    # get '/users/:id' do
+    #   if @user.nil?
+    #     redirect "/users"
+    #   elsif current_user && @user.id == current_user.id && @user = User.find_by(id: params[:id])
+    #     erb :'users/show'
+    #   else
+    #     flash[:errors] = "You cannot view that page."
+    #     redirect "users/#{current_user.id}"
+    #   end
+    # end
+
     get '/logout' do
         session.clear
         redirect '/login'

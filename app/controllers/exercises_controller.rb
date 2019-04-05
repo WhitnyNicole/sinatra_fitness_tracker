@@ -23,7 +23,6 @@ class ExercisesController < ApplicationController
       end
     end
 
-
     get "/exercises/:id" do
       set_exercise
       if @exercise.nil?

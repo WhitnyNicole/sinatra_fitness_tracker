@@ -21,11 +21,6 @@ class WorkoutsController < ApplicationController
     end
   end
 
-  # get "/workouts/:id" do
-  #   set_workout
-  #   erb :"workouts/show"
-  # end
-
   get "/workouts/:id" do
     set_workout
     if @workout.nil?
