@@ -12,6 +12,15 @@
   <input type="submit" value="Delete This Category">
 </form>
 <% end %>
+<br><br>
+<p><strong> This workout's exercises: </strong></p>
+<% @workout.exercises.each do |exercise| %>
+  <p>Move: <%= exercise.move %></p>
+  <p>Sets: <%= exercise.sets %></p>
+  <p>Reps: <%= exercise.reps %></p>
+  <p>Weight: <%= exercise.weight %></p>
+  <p>Day: <%= exercise.day %></p>
+  <% end %>
 
 <br><br>
 <h2>Log what you did today:</h2>
