@@ -4,11 +4,11 @@
   <h4>Please make your changes below:</h4>
   <br><br>
   <input type="hidden" name="_method" value="patch">
-  <p>What move did you do?: <input type="text" name="move" placeholder="bicep curls" value= "<%= @exercise.move %>"></p>
-  <p>How many sets?: <input type="text" name="sets" placeholder="3" value= "<%= @exercise.sets %>"></p>
-  <p>How many reps?: <input type="text" name="reps" placeholder="10" value= "<%= @exercise.reps %>"></p>
-  <p>What weight did you use?: <input type="integer" name="weight" placeholder="35" value= "<%= @exercise.weight %>"></p>
-  <p>Completed Date?: <input type="datetime" name="day" placeholder="March 3 2019" value= "<%= @exercise.day %>"></p>
+  <p>What move did you do?: <input type="text" name="move" placeholder="bicep curls" value= "<%= @exercise.move %>" required></p>
+  <p>How many sets?: <input type="number" name="sets" placeholder="3" value= "<%= @exercise.sets %>" required></p>
+  <p>How many reps?: <input type="number" name="reps" placeholder="10" value= "<%= @exercise.reps %>" required></p>
+  <p>What weight did you use?: <input type="number" name="weight" placeholder="35" value= "<%= @exercise.weight %>" required></p>
+  <p>Completed Date?: <input type="datetime" name="day" placeholder="March 3 2019" value= "<%= @exercise.day %>" required></p>
   <p>Intensity:
     <br><br>
   <% ["easy", "medium", "hard"].each do |element| %>

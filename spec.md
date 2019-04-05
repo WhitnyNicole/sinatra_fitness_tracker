@@ -9,7 +9,7 @@ Specs:
 - [x] Include user accounts with unique login attribute (username or email) --- Users must login with a unique email address
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying --- Full CRUD!
 - [x] Ensure that users can't modify content created by other users -- A user can only see a workout or exercise that belongs ot them and they cannot modify any other user's content
-- [x] Include user input validations --- Name/email/password required to create a new account. Params cannot be empty when creating a new workout or exercise. Users/workouts/exercises all need to have id's
+- [x] Include user input validations --- Name/email/password required to create a new account. Params cannot be empty when creating a new workout or exercise. Users/workouts/exercises all need to have id's. For numerical fields, non-numerical characters cannot be added. Email address must match the requested/typical email format. Name must be letters only.
 - [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)--- included flash messages for success and failures
 - [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code --- README included with all requirements
 

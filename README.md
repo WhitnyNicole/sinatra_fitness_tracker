@@ -1,4 +1,4 @@
-# FITNESS TRACKER
+## FITNESS TRACKER
 
 This is a simple Ruby app built with Sinatra and ActiveRecord that will allow a user to keep track of all of their workouts.
 
