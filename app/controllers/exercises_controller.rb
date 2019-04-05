@@ -26,7 +26,14 @@ class ExercisesController < ApplicationController
 
     get "/exercises/:id" do
       set_exercise
-      erb :"exercises/show"
+      if @exercise.nil?
+        redirect "/exercises"
+      elsif current_user && @exercise.workout.user_id == current_user.id
+        erb :"exercises/show"
+      else
+        flash[:errors] = "You cannot view that page."
+        redirect "users/#{current_user.id}"
+      end
     end
 
     get "/exercises/:id/edit" do
