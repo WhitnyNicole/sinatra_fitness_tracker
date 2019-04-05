@@ -1,7 +1,8 @@
-<h2>Here is your list of completed workouts!</h2>
+<h2>Here is your list of completed exercises!</h2>
 <br><br>
   <li><strong><%= @exercise.day %></strong></li>
   <li>Category: <%= @exercise.workout.category %></li>
+  <li>Duration: <%= @exercise.workout.duration %> minutes</li>
   <li>Move: <%= @exercise.move %></li>
   <li>Completed sets: <%= @exercise.sets %></li>
   <li>Completed reps: <%= @exercise.reps %></li>
