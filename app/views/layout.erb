@@ -22,6 +22,7 @@
         <a href="/workouts/new">New Workout</a>
         <a href="/exercises">My Exercises</a>
         <a href="/logout">Logout</a>
+        <br><br><p><strong>Signed in as <%= current_user.name %></strong></p>
         <% else %>
         <a href="/login">Log in</a>
         <% end %>

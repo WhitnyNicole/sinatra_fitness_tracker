@@ -2,6 +2,7 @@
 <p><strong> Today's workout: </strong></p>
 <p>Category: <%= @workout.category %></p>
 <p>Duration: <%= @workout.duration %> minutes</p>
+<p><i>Entered by: <%= @workout.user.name %></i></p>
 <br><br>
 <% if current_user == @workout.user %>
   <a href="/workouts/<%= @workout.id %>/edit">Edit Category</a>
