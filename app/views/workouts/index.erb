@@ -7,8 +7,7 @@
 <p>Here's what you've done so far: </p>
 <br><br>
 <% @workouts.each do |workout| %>
-  <p><a href= "/workouts/<%= workout.id %>"><%= workout.formatted_created_at_time %></a></p>
-  <p><strong><%= workout.category %></strong> workout completed!</p>
+  <p><a href= "/workouts/<%= workout.id %>"><%= workout.category %> workout completed! </a></p>
   <p><strong><%= workout.duration %></strong> minute workout completed!</p>
   <p><i>Entered by: <%= workout.user.name %></i></p>
   <br><br>

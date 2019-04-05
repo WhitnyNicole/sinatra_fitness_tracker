@@ -13,9 +13,8 @@ ul {
 </head>
 <body>
 <% @exercises.each do |exercise| %>
-  <h4><a href= "/exercises/<%= exercise.id %>"><%= exercise.formatted_created_at_time %></a></h4>
+  <h4>Completed on: <a href= "/exercises/<%= exercise.id %>"><%= exercise.day %></a></h4>
 <ul>
-  <li><strong><%= exercise.day %></strong></li>
   <li>Category: <%= exercise.workout.category %></li>
   <li>Duration: <%= exercise.workout.duration %> minutes</li>
   <li>Move: <%= exercise.move %></li>
