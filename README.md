@@ -1,4 +1,4 @@
-# SINATRA_FITNESS_TRACKER
+# FITNESS TRACKER
 
 This is a simple Ruby app built with Sinatra and ActiveRecord that will allow a user to keep track of all of their workouts.
 
@@ -9,16 +9,15 @@ Users have the ability to:
   -Edit or delete workouts or exercises as needed
 
 ## How to get set up
+
 To run this app, clone the repo and run bundle install. Then run shotgun to fire up a server. You should see the app running on http://127.0.0.1:9393/
 
 Prerequisites
 You will need to have Ruby installed on your machine - Linux or Mac.
 
 ## Built With
-  -Sinatra - Sinatra, our web framework
-  -sinatra-activerecord - ORM
-  -sqlite3 - Our SQL DB gem
 
+  -Sinatra/sinatra-activerecord/sqlite3
 
 ## Contributing
 
