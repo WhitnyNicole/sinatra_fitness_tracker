@@ -1,5 +1,5 @@
 <h2>Here are your workouts:</h2>
-<p><strong> Today's workout: </strong></p>
+<p><strong> Today's category: </strong></p>
 <p>Category: <%= @workout.category %></p>
 <p>Duration: <%= @workout.duration %> minutes</p>
 <p><i>Entered by: <%= @workout.user.name %></i></p>
@@ -13,13 +13,13 @@
 </form>
 <% end %>
 <br><br>
-<p><strong> This workout's exercises: </strong></p>
+<p><strong> Today's exercises: </strong></p>
 <% @workout.exercises.each do |exercise| %>
+  <p>Completed date: <%= exercise.day %></p>
+  <p>Weight: <%= exercise.weight %> pounds</p>
   <p>Move: <%= exercise.move %></p>
   <p>Sets: <%= exercise.sets %></p>
   <p>Reps: <%= exercise.reps %></p>
-  <p>Weight: <%= exercise.weight %></p>
-  <p>Day: <%= exercise.day %></p>
   <% end %>
 
 <br><br>
