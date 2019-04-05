@@ -7,7 +7,7 @@
  <p>How many sets?: <input type="number" name="sets" placeholder="3" value= "<%= @exercise.sets %>" required></p>
  <p>How many reps?: <input type="number" name="reps" placeholder="10" value= "<%= @exercise.reps %>" required></p>
  <p>What weight did you use?: <input type="number" name="weight" placeholder="35" value= "<%= @exercise.weight %>" required></p>
- <p>Completed Date?: <input type="date" name="day" placeholder="March 3 2019" value= "<%= @exercise.day %>" required></p>
+ <p>Completed Date?: <input type="text" name="day" placeholder="04/04/2019" value= "<%= @exercise.day %>" pattern="\d{1,2}/\d{1,2}/\d{4}" required></p>
  <p>Intensity:
  <input type="radio" name="intensity" value="Easy">Easy
  <input type="radio" name="intensity" value="Medium">Medium
