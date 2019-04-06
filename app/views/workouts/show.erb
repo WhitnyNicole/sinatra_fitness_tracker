@@ -1,4 +1,4 @@
-<h2>Here are your workouts:</h2>
+<h2>Here are your categories:</h2>
 <p><strong> Today's category: </strong></p>
 <p>Category: <%= @workout.category %></p>
 <p>Duration: <%= @workout.duration %> minutes</p>
@@ -23,7 +23,7 @@
   <% end %>
 
 <br><br>
-<h2>Log what you did today:</h2>
+<h2>Log today's exercise:</h2>
 <br><br>
 <form action="/exercises" method="POST">
  <input type="hidden" name="workout_id" value="<%= @workout.id %>">
