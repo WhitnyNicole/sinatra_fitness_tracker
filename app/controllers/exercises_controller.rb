@@ -12,7 +12,7 @@ class ExercisesController < ApplicationController
 
   post "/exercises" do
     redirect_if_not_logged_in
-    if params[:reps] && params[:weight] && params[:day] && params[:intensity] && params[:move] && params[:sets] && params[:workout_id]!= ""
+    if params[:reps] && params[:weight] && params[:day] && params[:intensity] && params[:move] && params[:sets] && params[:workout_id] != ""
       @exercise = Exercise.new(params)
       @exercise.save
       flash[:message] = "Congrats, you've entered a new exercise!"
