@@ -3,6 +3,7 @@
 This is a simple CRUD/MVC app built with the Sinatra framework and ActiveRecord that will allow a user to keep track of all of their workouts.
 
 Users have the ability to:
+<br><br>
   -Create a new accounta<br><br>
   -Create and save multiple workout categories<br><br>
   -Create and save multiple exercises<br><br>
