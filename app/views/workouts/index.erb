@@ -9,7 +9,7 @@
 <% @workouts.each do |workout| %>
   <p><a href= "/workouts/<%= workout.id %>"><%= workout.category %> workout completed! </a></p>
   <p><strong><%= workout.duration %></strong> minute workout completed!</p>
-  <p><i>// Entered by: <%= workout.user.name %></i></p>
+  <p><i>// Entered by: <%= workout.user.name if workout.user %></i></p>
   <p>-----------------------------------------------</p>
   <br><br>
 <% end %>

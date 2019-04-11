@@ -26,6 +26,7 @@
 <br><br>
 <h2>Log today's exercise:</h2>
 <br><br>
+<% if current_user == @workout.user %>
 <form action="/exercises" method="POST">
  <input type="hidden" name="workout_id" value="<%= @workout.id %>">
  <p>What move did you do?: <input type="text" name="move" placeholder="bicep curls"></p>
@@ -39,3 +40,6 @@
  <input type="radio" name="intensity" value="Hard">Hard</p>
  <input type="submit" value= "Create New Workout">
 </form>
+<% else %>
+<p>You cannot view this information!</p>
+<% end %>

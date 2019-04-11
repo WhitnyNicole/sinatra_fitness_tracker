@@ -1,7 +1,7 @@
 class WorkoutsController < ApplicationController
 
   get "/workouts" do
-    @workouts = current_user.workouts
+    @workouts = Workout.all
     erb :"/workouts/index"
   end
 
@@ -25,13 +25,25 @@ class WorkoutsController < ApplicationController
     set_workout
     if @workout.nil?
       redirect "/workouts"
-    elsif current_user && @workout.user_id == current_user.id
+    else 
       erb :"workouts/show"
-    else
-      flash[:errors] = "You cannot view that page."
-      redirect "users/#{current_user.id}"
+    # else
+    #   flash[:errors] = "You cannot view that page."
+    #   redirect "users/#{current_user.id}"
     end
   end
+
+  # get "/workouts/:id" do
+  #   set_workout
+  #   if @workout.nil?
+  #     redirect "/workouts"
+  #   elsif current_user && @workout.user_id == current_user.id
+  #     erb :"workouts/show"
+  #   else
+  #     flash[:errors] = "You cannot view that page."
+  #     redirect "users/#{current_user.id}"
+  #   end
+  # end
 
   get "/workouts/:id/edit" do
     set_workout
