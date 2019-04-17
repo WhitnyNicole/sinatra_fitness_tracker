@@ -1,9 +1,9 @@
-<h2>Here are your categories:</h2>
-<p><strong> Today's category: </strong></p>
+<h2>Here's Today's Workout:</h2>
+<p><strong> Today's Category & Duration: </strong></p>
 <p>Category: <%= @workout.category %></p>
 <p>Duration: <%= @workout.duration %> minutes</p>
 <p><i>Entered by: <%= @workout.user.name %></i></p>
-<br><br>
+<p>-----------------------------------------------</p>
 <% if current_user == @workout.user %>
   <a href="/workouts/<%= @workout.id %>/edit">Edit Category</a>
 <br><br>
@@ -13,19 +13,16 @@
 </form>
 <% end %>
 <br><br>
-<p><strong> Today's exercises: </strong></p>
+<p><strong> Today's Exercises: </strong></p>
 <% @workout.exercises.each do |exercise| %>
   <p>Completed date: <%= exercise.day %></p>
   <p>Weight: <%= exercise.weight %> pounds</p>
   <p>Move: <%= exercise.move %></p>
   <p>Sets: <%= exercise.sets %></p>
   <p>Reps: <%= exercise.reps %></p>
-  <br><br>
+  <p>-----------------------------------------------</p>
   <% end %>
-
-<br><br>
-<h2>Log today's exercise:</h2>
-<br><br>
+<h2>Log today's exercises:</h2>
 <% if current_user == @workout.user %>
 <form action="/exercises" method="POST">
  <input type="hidden" name="workout_id" value="<%= @workout.id %>">

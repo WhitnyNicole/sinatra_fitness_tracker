@@ -19,10 +19,11 @@
       <a href="/">Home</a>
       <% if logged_in? %>
         <a href="/workouts">My Workout Categories</a>
-        <a href="/workouts/new">New Category</a>
+        <a href="/workouts/new">New Workout</a>
         <a href="/exercises">My Exercises</a>
         <a href="/logout">Logout</a>
         <br><br><p><strong>Signed in as <%= current_user.name %></strong></p>
+        <center><i><p> Log a workout by entering a category, duration and exercise </i></p></center>
         <% else %>
         <a href="/login">Log in</a>
         <% end %>
