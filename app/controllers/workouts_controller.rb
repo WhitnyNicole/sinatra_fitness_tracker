@@ -1,9 +1,14 @@
 class WorkoutsController < ApplicationController
 
   get "/workouts" do
-    @workouts = Workout.all
+    @workouts = current_user.workouts
     erb :"/workouts/index"
   end
+
+  # get "/workouts" do
+  #   @workouts = Workout.all
+  #   erb :"/workouts/index"
+  # end
 
   get "/workouts/new" do
     erb :"workouts/new"
@@ -25,7 +30,7 @@ class WorkoutsController < ApplicationController
     set_workout
     if @workout.nil?
       redirect "/workouts"
-    else 
+    else
       erb :"workouts/show"
     # else
     #   flash[:errors] = "You cannot view that page."
@@ -33,27 +38,27 @@ class WorkoutsController < ApplicationController
     end
   end
 
-  # get "/workouts/:id" do
-  #   set_workout
-  #   if @workout.nil?
-  #     redirect "/workouts"
-  #   elsif current_user && @workout.user_id == current_user.id
-  #     erb :"workouts/show"
-  #   else
-  #     flash[:errors] = "You cannot view that page."
-  #     redirect "users/#{current_user.id}"
-  #   end
-  # end
-
-  get "/workouts/:id/edit" do
+  get "/workouts/:id" do
     set_workout
-    redirect_if_not_logged_in
-    if authorized_to_edit_workout?(@workout)
-      erb :"workouts/edit"
+    if @workout.nil?
+      redirect "/workouts"
+    elsif current_user && @workout.user_id == current_user.id
+      erb :"workouts/show"
     else
+      flash[:errors] = "You cannot view that page."
       redirect "users/#{current_user.id}"
     end
   end
+
+  # get "/workouts/:id/edit" do
+  #   set_workout
+  #   redirect_if_not_logged_in
+  #   if authorized_to_edit_workout?(@workout)
+  #     erb :"workouts/edit"
+  #   else
+  #     redirect "users/#{current_user.id}"
+  #   end
+  # end
 
   patch "/workouts/:id" do
     set_workout
