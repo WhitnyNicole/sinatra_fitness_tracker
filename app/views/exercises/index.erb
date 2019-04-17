@@ -1,10 +1,7 @@
+<h1>All Completed Exercises!</h1>
 <!DOCTYPE html>
 <html>
 <head>
-<h1>All Completed Exercises!</h1>
-<br><br>
-<p><a href="/workouts/new">Add</a> a new workout!
-<br><br>
 <style>
 ul {
   list-style-type: square;
@@ -12,6 +9,9 @@ ul {
 </style>
 </head>
 <body>
+  <br><br>
+  <p><a href="/workouts/new">Add</a> a new workout!
+  <br><br>
 <% @exercises.each do |exercise| %>
   <h4>Completed on: <a href= "/exercises/<%= exercise.id %>"><%= exercise.day %></a></h4>
 <ul>
