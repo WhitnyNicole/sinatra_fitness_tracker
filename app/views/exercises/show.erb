@@ -8,7 +8,7 @@
   <li>Completed reps: <%= @exercise.reps %></li>
   <li>Weight used: <%= @exercise.weight %> pounds</li>
   <li>Intensity: <%= @exercise.intensity %></li>
-  <li><i>Entered by: <%= @exercise.workout.user.name %></i></li>
+  <h4><i>Entered by: <%= @exercise.workout.user.name %></i></h4>
   <br><br>
 <% if current_user == @exercise.workout.user %>
   <a href="/exercises/<%= @exercise.id %>/edit">Edit Exercise</a>

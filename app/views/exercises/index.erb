@@ -11,7 +11,7 @@ ul {
 <body>
   <p><a href="/workouts/new">Add</a> a new workout!
 <% @exercises.each do |exercise| %>
-  <h4>Completed on: <a href= "/exercises/<%= exercise.id %>"><%= exercise.day %></a></h4>
+  <center><h4>Completed on: <a href= "/exercises/<%= exercise.id %>"><%= exercise.day %></a></h4>
 <ul>
   <li>Category: <%= exercise.workout.category %></li>
   <li>Duration: <%= exercise.workout.duration %> minutes</li>
