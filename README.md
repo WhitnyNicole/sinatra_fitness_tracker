@@ -17,7 +17,9 @@ To run this app, clone the repo and run bundle install and rake db:migrate. Then
 
 ## Built With
 
-  -Sinatra/sinatra-activerecord/sqlite3
+  -Sinatra<br><br>
+  -Sinatra-activerecord<br><br>
+  -Sqlite3<br><br>
 
 ## Contributing
 
