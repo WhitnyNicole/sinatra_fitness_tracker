@@ -1,16 +1,16 @@
-<center><h2>Record Today's Workout Category & Duration!</h2>
+<center><u><h2>Record Today's Workout Category & Duration!</h2></u>
 <form action="/workouts" method="POST">
-  <h4><label for="category">Category: </label><br><br></h4>
+  <h4><label for="category">Category: </label></h4>
     <% ["arms", "abs", "back", "legs", "chest", "full body"].each do |element| %>
         <input type="radio" name="category" value="<%= element.capitalize %>"> <%= element.capitalize %> <br>
     <% end %>
   <br><br>
-  <h4><label for="duration">Duration: </label><br><br></h4>
+  <h4><label for="duration">Duration: </label></h4>
     <% (0..120).step(15) do |n| %>
       <% unless n == 0 || n == 75 || n == 105 %>
             <input type="radio" name="duration" value="<%= n %>"> <%= "#{n} minutes"%><br>
       <% end %>
     <% end %>
     <br><br>
-  <input type="submit" value="Select Category">
+  <input type="submit" value="Select Category"><br><br>
 </form>

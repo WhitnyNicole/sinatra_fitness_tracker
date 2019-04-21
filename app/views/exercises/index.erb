@@ -1,4 +1,4 @@
-<h1>All Completed Exercises!</h1>
+<center><u><h1>All Completed Exercises!</h1></u></center>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +9,7 @@ ul {
 </style>
 </head>
 <body>
-  <br><br>
   <p><a href="/workouts/new">Add</a> a new workout!
-  <br><br>
 <% @exercises.each do |exercise| %>
   <h4>Completed on: <a href= "/exercises/<%= exercise.id %>"><%= exercise.day %></a></h4>
 <ul>
@@ -22,12 +20,9 @@ ul {
   <li>Reps: <%= exercise.reps %> reps</li>
   <li>Weight: <%= exercise.weight %> pounds</li>
   <li>Intensity: <%= exercise.intensity %></li>
-  <br><br>
-  <li><i>// Entered by: <%= exercise.workout.user.name %></i></li>
-  <li>-----------------------------------------------</li>
+  <h4><i> Entered by: <%= exercise.workout.user.name %></i></h4>
   <br><br>
 </ul>
-  <br><br>
 <% end %>
 </body>
 </html>

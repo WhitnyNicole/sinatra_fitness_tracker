@@ -11,7 +11,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <!-- <link rel="stylesheet" href="/stylesheets/main.css" /> -->
+    <link rel="stylesheet" href="/stylesheets/fitness_tracker.html" />
   </head>
   <body>
 
@@ -22,8 +23,7 @@
         <a href="/workouts/new">New Workout</a>
         <a href="/exercises">My Exercises</a>
         <a href="/logout">Logout</a>
-        <br><br><p><strong>Signed in as <%= current_user.name %></strong></p>
-        <center><i><p> Log a workout by entering a category, duration and exercise </i></p></center>
+        <br><br><p><i>Signed in as <%= current_user.name %></i></p>
         <% else %>
         <a href="/login">Log in</a>
         <% end %>
@@ -31,7 +31,7 @@
 
     <div class="wrapper">
          <% if flash[:message] %>
-         <h3><%= flash[:message] %></h3>
+         <h3 style="color: green;"><%= flash[:message] %></h3>
          <% end %>
          <% if flash[:errors] %>
          <h3 style="color: red;"><%= flash[:errors] %></h3>

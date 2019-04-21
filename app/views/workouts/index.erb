@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>All Completed Workout Categories!</h1>
-<br><br>
+<center><u><h1>All Completed Workout Categories!</h1></u></center>
 <p><a href="/workouts/new">Add</a> a new workout!
-<p>Here's what you've done so far: </p>
 <br><br>
+<center><h3>Here's what you've done so far: </h3>
 <% @workouts.each do |workout| %>
   <p><a href= "/workouts/<%= workout.id %>"><%= workout.category %> workout completed! </a></p>
   <p><strong><%= workout.duration %></strong> minute workout completed!</p>
-  <p><i>// Entered by: <%= workout.user.name if workout.user %></i></p>
+  <h4><i>Entered by: <%= workout.user.name if workout.user %></i></h4>
   <p>-----------------------------------------------</p>
-  <br><br>
 <% end %>
 </body>
 </html>

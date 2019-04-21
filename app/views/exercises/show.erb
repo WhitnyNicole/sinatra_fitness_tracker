@@ -1,4 +1,4 @@
-<h2>Here's Today's Completed Exercises!</h2>
+<center><h2><u>Here's Today's Completed Exercises!</h2></u>
 <br><br>
   <li><strong><%= @exercise.day %></strong></li>
   <li>Category: <%= @exercise.workout.category %></li>
@@ -15,6 +15,6 @@
 <br><br>
 <form class="" action="/exercises/<%= @exercise.id %>" method="post">
   <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete This Exercise">
+  <input type="submit" value="Delete This Exercise"><br><br>
 </form>
 <% end %>
